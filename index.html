@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Tech - Plataforma de Cursos</title>
+    <!-- Pré-carregamento das fontes mais importantes -->
+    <link rel="preload" href="fontes/Montserrat/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fontes/Roboto/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Importação de ícones do Font Awesome Local -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <div class="logo">
+            <!-- Ícone 1: Chapéu de graduação -->
+            <img src="icones/graduation-cap.svg" class="icone pequena" alt="Logo"> Course Tech
+        </div>
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="./html/cadastro.html">Cadastro</a></li>
+                <li><a href="./html/login.html">Login</a></li>
+                <li><a href="./html/admin.html"><img src="/icones/users-shield.svg" class="icone pequena" alt="Admin">
+                        Admin</a></li>
+                <li><button onclick="alternarTema()" id="btn-tema">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção de Destaque -->
+        <section class="destaque">
+            <div class="destaque-conteudo">
+                <!-- Título principal -->
+                <h1>Aprenda as tecnologias do futuro hoje!</h1>
+                <!-- Descrição principal -->
+                <p>Nossa plataforma oferece os melhores cursos de programação, design e marketing digital para
+                    impulsionar sua carreira.</p>
+                <!-- Links de ação padronizados -->
+                <div class="destaque-botoes">
+                    <a href="html/cadastro.html" class="btn-primario">Começar Agora</a>
+                    <a href="#cursos" class="btn-secundario">Ver Cursos</a>
+                </div>
+            </div>
+            <div class="destaque-imagem">
+                <!-- Imagem de destaque -->
+                <img src="imagens/estudante.jpg" alt="Estudante aprendendo">
+            </div>
+        </section>
+
+        <!-- Seção de Cursos em Destaque -->
+        <section id="cursos">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-family: var(--fonte-titulos);">Nossos Cursos em
+                Destaque</h2>
+            <!-- Container Flexbox para os cards de cursos -->
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                <!-- Card 1 -->
+                <div
+                    style="flex: 1; min-width: 250px; background:var(--cor-branco); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="imagens/web.jpg" alt="Desenvolvimento Web"
+                        style="width: 100%; border-radius: 4px; margin-bottom: 1rem;">
+                    <h3>Desenvolvimento Web Full Stack</h3>
+                    <p>Domine HTML, CSS, JavaScript, React e Node.js do zero ao profissional.</p>
+                    <span style="display: block; margin-top: 1rem; font-weight: bold; color: var(--cor-secundaria);">R$
+                        499,00</span>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    style="flex: 1; min-width: 250px; background: var(--cor-branco); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="imagens/uiux.jpg" alt="UI/UX Design"
+                        style="width: 100%; border-radius: 4px; margin-bottom: 1rem;">
+                    <h3>UI/UX Design Moderno</h3>
+                    <p>Aprenda a criar interfaces incríveis e experiências de usuário memoráveis.</p>
+                    <span style="display: block; margin-top: 1rem; font-weight: bold; color: var(--cor-secundaria);">R$
+                        350,00</span>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    style="flex: 1; min-width: 250px; background:var(--cor-branco); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="imagens/marketing.jpg" alt="Marketing Digital"
+                        style="width: 100%; border-radius: 4px; margin-bottom: 1rem;">
+                    <h3>Marketing Digital Estratégico</h3>
+                    <p>Aprenda as melhores estratégias para vender mais e crescer sua marca online.</p>
+                    <span style="display: block; margin-top: 1rem; font-weight: bold; color: var(--cor-secundaria);">R$
+                        290,00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Benefícios -->
+        <section class="beneficios">
+            <h2>Por que escolher a Course Tech?</h2>
+            <ul>
+                <li><img src="icones/check-circle.svg" class="icone" alt="Check"> <br>Certificado Reconhecido </li>
+                <li><img src="icones/clock.svg" class="icone" alt="Relógio"><br>Acesso Vitalício</li>
+                <li><img src="icones/users-shield.svg class=" icone" alt="Escudo"><br>Comunidade Ativa</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <p>&copy; 2026 Course Tech - Todos os direitos reservados.</p>
+        <div style="margin-top: 10px;">
+            <!-- Links sociais -->
+            <a href="#" style="margin: 0 10px;"><img src="icones/facebook.svg" class="icone icone_social_media"
+                    alt="Facebook"></a>
+            <a href="#" style="margin: 0 10px;"><img src="icones/instagram.svg" class="icone icone_social_media"
+                    alt="Instagram"></a>
+            <a href="#" style="margin: 0 10px;"><img src="icones/linkedin.svg" class="icone icone_social_media"
+                    alt="LinkedIn"></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/tema.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+/* Estilos específicos da página Admin */
+
+.admin-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilo da lista de usuários */
+.lista-usuarios {
+    margin-top: 2rem;
+    background: var(--cor-branco);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--cor-texto);
+}
+
+/* Item da lista */
+.item-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--cor-preto);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-usuario:last-child {
+    border-bottom: none;
+}
+
+/* Container para botões de ação em massa */
+.acoes-lista {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Estilo do campo de pesquisa dinâmica */
+.pesquisa-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+}
+
+.pesquisa-container input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--cor-preto);
+    border-radius: 4px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: border-color 0.3s;
+}
+
+.pesquisa-container input:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+}
+
+.dark .pesquisa-container input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}

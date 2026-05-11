@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Course Tech</title>
+    <!-- Pré-carregamento das fontes mais importantes -->
+    <link rel="preload" href="../fontes/Montserrat/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fontes/Roboto/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Importação de ícones do Font Awesome Local -->
+    <link rel="stylesheet" href="../css/fontawesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../icones/graduation-cap.svg" class="icone pequena" alt="Logo"> Course Tech
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="admin.html"><img src="../icones/users-shield.svg" class="icone pequena" alt="Admin">
+                        Admin</a></li>
+                <li><button onclick="alternarTema()" id="btn-tema">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-form">
+            <h2 style="text-align: center; margin-bottom: 1.5rem; font-family: var(--fonte-titulos);">Acesse sua Conta
+            </h2>
+            <form id="formLogin">
+                <div class="form-grupo">
+                    <label for="emailLogin">E-mail</label>
+                    <input type="email" id="emailLogin" name="emailLogin" required placeholder="seu@email.com">
+                </div>
+                <div class="form-grupo">
+                    <label for="senhaLogin">Senha</label>
+                    <input type="password" id="senhaLogin" name="senhaLogin" required placeholder="Sua senha">
+                </div>
+                <button type="submit" class="btn-primario">Entrar</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">Não tem uma conta? <a href="cadastro.html"
+                    style="color: var(--cor-secundaria);">Cadastre-se</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Course Tech - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/tema.js"></script>
+
+</body>
+
+</html>

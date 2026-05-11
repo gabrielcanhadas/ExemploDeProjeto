@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - Course Tech</title>
+    <!-- Pré-carregamento das fontes mais importantes -->
+    <link rel="preload" href="../fontes/Montserrat/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fontes/Roboto/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Link para o CSS global -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Link para o CSS admin -->
+    <link rel="stylesheet" href="../css/admin.css">
+    <!-- Ícones para a interface administrativa Local -->
+    <link rel="stylesheet" href="../css/fontawesome.min.css">
+</head>
+
+<body>
+    <!-- Cabeçalho padrão mantendo a consistência visual -->
+    <header>
+        <div class="logo">
+            <img src="../icones/graduation-cap.svg" class="icone pequena" alt="Logo"> Course Tech
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="admin.html"><img src="../icones/users-shield.svg" class="icone pequena" alt="Admin">
+                        Admin</a></li>
+                <li><button onclick="alternarTema()" id="btn-tema">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="admin-container">
+            <h2 style="text-align: center; margin-bottom: 1.5rem; font-family: var(--fonte-titulos);">Gerenciamento de
+                Usuários</h2>
+
+            <!-- Formulário de cadastro administrativo -->
+            <div class="container-form" style="max-width: 100%; margin: 0;">
+                <form id="formAdmin">
+                    <div class="form-grupo">
+                        <label for="nomeAdmin">Nome do Usuário</label>
+                        <input type="text" id="nomeAdmin" required placeholder="Nome completo">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="emailAdmin">E-mail</label>
+                        <input type="email" id="emailAdmin" required placeholder="email@exemplo.com">
+                    </div>
+                    <!-- Botões de ação do formulário padronizados -->
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn-primario" id="btnCadastrar">Cadastrar</button>
+                        <button type="button" class="btn-limpar" id="btnLimparCampos">Limpar Campos</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Seção da lista dinâmica de usuários -->
+            <div class="lista-usuarios">
+                <h3>Usuários Cadastrados</h3>
+
+                <!-- Campo de pesquisa -->
+                <div class="pesquisa-container">
+                    <input type="text" id="inputPesquisa" placeholder="Pesquisar por nome ou e-mail...">
+                </div>
+
+                <!-- Lista não ordenada -->
+                <ul id="listaUsuarios">
+                    <!-- Os itens (li) serão inseridos aqui via JavaScript (admin.js) -->
+                </ul>
+
+                <!-- Ações globais sobre a lista -->
+                <div class="acoes-lista">
+                    <button type="button" class="btn-excluir" id="btnExcluirTudo">Excluir Todos os Registros</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé padrão -->
+    <footer>
+        <p>&copy; 2026 Course Tech - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/tema.js"></script>
+
+</body>
+
+</html>

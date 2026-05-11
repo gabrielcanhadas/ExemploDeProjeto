@@ -1,0 +1,373 @@
+/* --- ESTILOS GLOBAIS E VARIÁVEIS --- */
+
+/* Importação de fontes locais com estratégia de fallback (WOFF2 > WOFF > TTF) */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fontes/Montserrat/Montserrat-Variable.woff2') format('woff2'),
+        url('../fontes/Montserrat/Montserrat-Variable.woff') format('woff'),
+        url('../fontes/Montserrat/Montserrat-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fontes/Roboto/Roboto-Regular.woff2') format('woff2'),
+        url('../fontes/Roboto/Roboto-Regular.woff') format('woff'),
+        url('../fontes/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fontes/Roboto/Roboto-Medium.woff2') format('woff2'),
+        url('../fontes/Roboto/Roboto-Medium.woff') format('woff'),
+        url('../fontes/Roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fontes/Roboto/Roboto-Bold.woff2') format('woff2'),
+        url('../fontes/Roboto/Roboto-Bold.woff') format('woff'),
+        url('../fontes/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Definição de variáveis CSS para manter a consistência de cores e fontes */
+:root {
+    --cor-primaria: #4d5f71; /* Azul escuro para cabeçalho/rodapé */
+    --cor-secundaria: #3498db; /* Azul claro para botões e links */
+    --cor-destaque: #e74c3c; /* Vermelho para ações de exclusão */
+    --cor-limpar: #95a5a6; /* Cinza para botão limpar */
+    --cor-fundo: #f4f7f6; /* Cinza muito claro para o fundo */
+    --cor-texto: #333; /* Cinza escuro para o texto principal */
+    --cor-branco: #ffffff; /* Branco puro */
+    --cor-preto: rgba(0, 0, 0, 0.1); /* Preto translúcido para sombras/bordas */
+    --fonte-titulos: 'Montserrat', sans-serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+    --cor-texto-claro: #ffffff;
+}
+
+/* Variáveis para o Modo Escuro */
+.dark {
+    --cor-fundo: #121212;
+    --cor-texto: #e4e4e4;
+    --cor-primaria: #1f2a35;
+    --cor-secundaria: #5dade2;
+    --cor-destaque: #f1948a; /* Vermelho mais suave no modo escuro */
+    --cor-limpar: #bdc3c7; /* Cinza mais claro no modo escuro */
+    --cor-branco: #1e1e1e;
+    --cor-texto-claro: #ffffff;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- LAYOUT --- */
+
+header,
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 1rem 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: var(--fonte-titulos);
+    font-size: 1.5rem;
+    color: var(--cor-secundaria);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--cor-secundaria);
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 1.5rem;
+}
+
+/* --- FORMULÁRIOS --- */
+
+.container-form {
+    background: var(--cor-branco);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.form-grupo {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grupo label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-grupo input {
+    padding: 0.8rem;
+    border: 1px solid var(--cor-preto);
+    border-radius: 4px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* --- BOTÕES --- */
+
+.botoes {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-family: var(--fonte-titulos);
+}
+
+.btn-primario {
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primario:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.btn-secundario:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.btn-limpar {
+    background-color: var(--cor-limpar);
+    color: #333;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-limpar:hover {
+    opacity: 0.8;
+}
+
+.btn-excluir {
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-excluir:hover {
+    filter: brightness(1.1);
+}
+
+#btn-tema {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* --- ÍCONES --- */
+
+.icone {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+}
+
+.icone_social_media {
+    filter: invert(1) brightness(2.2) saturate(2);
+}
+
+.pequena {
+    width: 20px;
+}
+
+/* --- SEÇÃO DE DESTAQUE (ANTIGA HERO) --- */
+
+.destaque {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.destaque-conteudo {
+    flex: 1;
+    min-width: 300px;
+}
+
+.destaque-conteudo h1 {
+    font-family: var(--fonte-titulos);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-texto);
+}
+
+.destaque-conteudo p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--cor-texto);
+}
+
+.destaque-imagem {
+    flex: 1;
+    min-width: 300px;
+}
+
+.destaque-imagem img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px var(--cor-preto);
+    transition: transform 0.3s;
+}
+
+.destaque-imagem img:hover {
+    transform: scale(1.02);
+}
+
+/* --- SEÇÃO DE BENEFÍCIOS --- */
+
+.beneficios {
+    margin-top: 4rem;
+    background: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.beneficios h2 {
+    margin-bottom: 2rem;
+    font-family: var(--fonte-titulos);
+}
+
+.beneficios ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.beneficios li {
+    flex: 1;
+    min-width: 150px;
+}
+
+.beneficios .icone {
+    margin-bottom: 10px;
+    filter: brightness(0) invert(1);
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .destaque {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .destaque-botoes {
+        justify-content: center;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .destaque-conteudo h1 {
+        font-size: 2rem;
+    }
+}
