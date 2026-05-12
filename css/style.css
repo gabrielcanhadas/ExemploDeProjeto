@@ -43,14 +43,22 @@
 
 /* Definição de variáveis CSS para manter a consistência de cores e fontes */
 :root {
-    --cor-primaria: #4d5f71; /* Azul escuro para cabeçalho/rodapé */
-    --cor-secundaria: #3498db; /* Azul claro para botões e links */
-    --cor-destaque: #e74c3c; /* Vermelho para ações de exclusão */
-    --cor-limpar: #95a5a6; /* Cinza para botão limpar */
-    --cor-fundo: #f4f7f6; /* Cinza muito claro para o fundo */
-    --cor-texto: #333; /* Cinza escuro para o texto principal */
-    --cor-branco: #ffffff; /* Branco puro */
-    --cor-preto: rgba(0, 0, 0, 0.1); /* Preto translúcido para sombras/bordas */
+    --cor-primaria: #4d5f71;
+    /* Azul escuro para cabeçalho/rodapé */
+    --cor-secundaria: #3498db;
+    /* Azul claro para botões e links */
+    --cor-destaque: #e74c3c;
+    /* Vermelho para ações de exclusão */
+    --cor-limpar: #95a5a6;
+    /* Cinza para botão limpar */
+    --cor-fundo: #f4f7f6;
+    /* Cinza muito claro para o fundo */
+    --cor-texto: #333;
+    /* Cinza escuro para o texto principal */
+    --cor-branco: #ffffff;
+    /* Branco puro */
+    --cor-preto: rgba(0, 0, 0, 0.1);
+    /* Preto translúcido para sombras/bordas */
     --fonte-titulos: 'Montserrat', sans-serif;
     --fonte-corpo: 'Roboto', sans-serif;
     --cor-texto-claro: #ffffff;
@@ -62,8 +70,10 @@
     --cor-texto: #e4e4e4;
     --cor-primaria: #1f2a35;
     --cor-secundaria: #5dade2;
-    --cor-destaque: #f1948a; /* Vermelho mais suave no modo escuro */
-    --cor-limpar: #bdc3c7; /* Cinza mais claro no modo escuro */
+    --cor-destaque: #f1948a;
+    /* Vermelho mais suave no modo escuro */
+    --cor-limpar: #bdc3c7;
+    /* Cinza mais claro no modo escuro */
     --cor-branco: #1e1e1e;
     --cor-texto-claro: #ffffff;
 }
@@ -251,16 +261,18 @@ footer {
 
 .icone {
     vertical-align: middle;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
+}
+
+.icone_logo {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
 }
 
 .icone_social_media {
     filter: invert(1) brightness(2.2) saturate(2);
-}
-
-.pequena {
-    width: 20px;
 }
 
 /* --- SEÇÃO DE DESTAQUE (ANTIGA HERO) --- */
