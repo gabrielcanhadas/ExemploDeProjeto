@@ -1,21 +1,12 @@
-# Contexto do projeto — Course Tech
+# CONTEXTO_PROJETO
 
-## Escopo e método
+## 1. Inventário do projeto
 
-Este documento descreve o conteúdo encontrado neste repositório: páginas HTML, folhas CSS, scripts JavaScript, imagens, ícones e fontes. As descrições de comportamento foram inferidas da implementação disponível. Não foram executados os fluxos no navegador; portanto, comportamentos dependentes do ambiente são indicados como não verificados.
-
-## Finalidade identificada
-
-O projeto apresenta uma interface web chamada **Course Tech**, voltada à divulgação de cursos de tecnologia e à demonstração de páginas de cadastro, login e gerenciamento de usuários. Essa finalidade é indicada pelo título e pelos textos da página inicial, pelos nomes e conteúdos dos formulários e pelo painel administrativo.
-
-O que os arquivos comprovam é uma interface estática no cliente, com alternância de tema e gerenciamento local de registros no painel. Não há código de servidor, integração com API ou autenticação implementada neste repositório. Assim, os textos de cursos e os formulários de acesso não comprovam a existência de uma plataforma de cursos operacional, de compra de cursos ou de contas de usuário persistidas em servidor.
-
-## Inventário e estrutura
+A estrutura de arquivos e diretórios identificada no projeto é a seguinte:
 
 ```text
-ExemploDeProjeto/
+EXEMPLODEPROJETO/
 ├── index.html
-├── CONTEXTO_PROJETO.md
 ├── css/
 │   ├── admin.css
 │   ├── style.css
@@ -55,141 +46,309 @@ ExemploDeProjeto/
 │   ├── marketing.jpg
 │   ├── uiux.jpg
 │   └── web.jpg
-└── js/
-    ├── admin.js
-    └── tema.js
+├── js/
+│   ├── admin.js
+│   └── tema.js
 ```
 
-Não foram encontrados arquivos JSON, manifesto de dependências, configuração de build, configuração de servidor ou backend no inventário do projeto. As fontes Font Awesome em `css/webfonts/` estão presentes, mas não foi encontrada folha CSS ou referência HTML que as utilize.
+Observações:
 
-## Visão geral e telas
+- O inventário acima inclui os diretórios e arquivos relevantes ao projeto visível no repositório analisado.
+- Não foi identificado um diretório de backend, API, banco de dados, framework ou estrutura de pastas como `src`, `public`, `components` etc. O projeto apresentado é um front-end estático em HTML, CSS e JavaScript.
+- Os arquivos de fonte e ícones estão armazenados localmente no projeto e são referenciados por caminhos relativos nos documentos HTML.
 
-| Página | Finalidade e elementos | Comportamento implementado |
-|---|---|---|
-| `index.html` | Apresentação da Course Tech, chamada para cadastro, links para cursos, três cards com título, descrição e preço, benefícios e links sociais. | Links navegam para cadastro ou para a seção `#cursos`; o botão de tema chama `alternarTema()`. Os links sociais têm `href="#"`, sem destino de perfil configurado. |
-| `html/cadastro.html` | Formulário com nome, e-mail, telefone, senha e confirmação, todos obrigatórios. | Não há script de cadastro. O navegador aplica validação básica dos campos `required` e `email`; ao enviar, o formulário usa o comportamento HTML padrão e tem `action="login.html"`, sem `method`, portanto o padrão é GET. Não há lógica que salve a conta ou confira se as senhas coincidem. |
-| `html/login.html` | Formulário com e-mail e senha obrigatórios e link para cadastro. | Não há script de autenticação, validação além da nativa do navegador ou destino de envio explícito. O formulário usa o envio HTML padrão (GET para a própria página). Não há verificação de credenciais ou sessão implementada. |
-| `html/admin.html` | Formulário administrativo de nome e e-mail, pesquisa, lista dinâmica e ações de limpar e excluir registros. | `admin.js` cria, pesquisa, exibe e remove registros no armazenamento local do navegador. Não há mecanismo de autorização visível que restrinja o acesso à página. |
+## 2. Finalidade identificada do projeto
 
-As quatro páginas têm cabeçalho com marca e navegação, botão de tema e rodapé. A navegação é composta por links HTML relativos. O painel administrativo e as páginas de formulário compartilham `style.css`; o painel também carrega `admin.css`.
+A finalidade mais clara que pode ser inferida pelos arquivos é a de uma landing page e portal de cursos, com foco em marketing de cursos online e em fluxo de cadastro/ login de usuários para uma plataforma educacional.
 
-## Organização e responsabilidade dos arquivos
+As evidências que sustentam essa conclusão são:
 
-### HTML
+- Texto principal da página inicial: "Aprenda as tecnologias do futuro hoje!" e "Nossa plataforma oferece os melhores cursos de programação, design e marketing digital...".
+- Título da marca: "Course Tech".
+- Navegação com links para "Início", "Cadastro", "Login" e "Admin".
+- Seção "Nossos Cursos em Destaque" com três cards de cursos com preços em reais (`R$ 499,00`, `R$ 350,00`, `R$ 290,00`).
+- Seção "Por que escolher a Course Tech?" com benefícios como "Certificado Reconhecido", "Acesso Vitalício" e "Comunidade Ativa".
+- Página de cadastro com campos de nome, e-mail, telefone, senha e confirmação de senha.
+- Página de login com campos de e-mail e senha.
+- Página administrativa intitulada "Gerenciamento de Usuários", com formulário de cadastro, pesquisa, exclusão individual e exclusão de todos.
+- O JavaScript usa `localStorage` para persistir usuários e tema visual.
 
-- **`index.html`** — documento principal (`lang="pt-br"`), com cabeçalho/nav, seção de destaque, catálogo apresentado em três cards, benefícios e rodapé. Usa imagens em `imagens/`, SVGs em `icones/`, `css/style.css` e `js/tema.js`. Os cards e preços estão escritos diretamente no HTML.
-- **`html/cadastro.html`** — formulário `#formCadastro`; rótulos se associam aos campos por `for`/`id`. Seus campos obrigatórios usam tipos nativos `text`, `email`, `tel` e `password`. Inclui `style.css` e `tema.js` por caminhos relativos à subpasta `html`.
-- **`html/login.html`** — formulário `#formLogin` com campos `#emailLogin` e `#senhaLogin`; inclui `style.css` e `tema.js`.
-- **`html/admin.html`** — define os elementos esperados por `admin.js`: `#formAdmin`, `#nomeAdmin`, `#emailAdmin`, `#listaUsuarios`, `#btnLimparCampos`, `#btnExcluirTudo` e `#inputPesquisa`. Carrega `admin.js` e `tema.js`, além dos estilos globais e administrativos.
+Conclusão fundamentada no código observado: trata-se de um projeto front-end estático de apresentação de cursos e gestão visual de usuários no navegador, sem backend real implementado.
 
-### JavaScript
+## 3. Visão geral do sistema
 
-- **`js/tema.js`** — declara `alternarTema()`, que alterna a classe `dark` em `document.body`, grava `dark` ou `light` na chave `tema` do `localStorage` e atualiza o emoji do botão `#btn-tema`, quando presente. No evento `DOMContentLoaded`, lê essa chave e reaplica o modo escuro se o valor for `dark`. O script é incluído nas quatro páginas.
-- **`js/admin.js`** — ao receber `DOMContentLoaded`, busca no DOM os elementos do painel e carrega o array JSON da chave `usuarios_Course Tech`; se a chave não tiver valor, inicia com array vazio. `salvarDados()` serializa o array de volta ao armazenamento local. `renderizarLista(filtro)` filtra nome ou e-mail sem diferenciar maiúsculas de minúsculas e monta os itens da lista, incluindo data e botão de exclusão. O submit cria `{ nome, email, dataEnvio }`, em que a data é produzida por `toLocaleString('pt-BR')`, salva, renderiza e limpa o formulário. Os outros eventos limpam o formulário, pedem confirmação antes de apagar tudo, ou atualizam a lista durante a pesquisa. `window.excluirItem` expõe a exclusão individual para o `onclick` criado na lista.
+O projeto é composto por páginas HTML estáticas acessadas em um navegador, com estilos compartilhados em CSS e pequenos scripts em JavaScript para interatividade básica.
 
-  A lista é montada usando `innerHTML`, inclusive com nome e e-mail armazenados. A exclusão individual usa o índice do resultado filtrado como índice no array original; quando uma pesquisa está ativa, esse índice pode apontar para outro registro. Estes são comportamentos observáveis no código e devem ser considerados ao manter o painel.
-
-### CSS e tipografia
-
-- **`css/style.css`** — define as fontes locais, variáveis de cor/tipografia, reset e estilos compartilhados. O corpo usa layout flexível em coluna para ocupar pelo menos a altura da janela; `main` tem largura máxima de 1200 px. Estiliza cabeçalho, navegação, rodapé, formulários, botões, ícones, destaque e benefícios. A classe `.dark` substitui variáveis de cor usadas por componentes compartilhados. A media query até 768 px empilha cabeçalho/nav e conteúdo de destaque, ajustando alinhamento e tamanho do título.
-- **`css/admin.css`** — complementa a página administrativa com largura do painel, cartão da lista, linhas flexíveis de usuário, área de ações e campo de pesquisa com estado `:focus` e placeholder adaptado ao modo escuro.
-- **`fontes/Montserrat/`** e **`fontes/Roboto/`** — arquivos locais referenciados por `@font-face` no CSS. Montserrat é a família de títulos e Roboto a família do corpo. O CSS lista WOFF2, WOFF e TTF como fontes alternativas. No inventário, Roboto possui apenas arquivos TTF; os caminhos WOFF2/WOFF citados para essa família não estão presentes. As páginas também pre-carregam Montserrat WOFF2 e Roboto-Regular WOFF2.
-
-Os estilos de cards de curso, alguns espaçamentos e estilos de títulos estão escritos como atributos `style` diretamente em `index.html` e nas páginas internas; portanto, nem toda apresentação está centralizada nos arquivos CSS.
-
-### Imagens, ícones e outros recursos
-
-- **`imagens/estudante.jpg`** aparece na seção de destaque; `web.jpg`, `uiux.jpg` e `marketing.jpg` ilustram os três cards de curso.
-- **`icones/graduation-cap.svg`** identifica a marca no cabeçalho; `check-circle.svg`, `clock.svg` e `users-shield.svg` aparecem nos benefícios; `facebook.svg`, `instagram.svg` e `linkedin.svg` aparecem no rodapé da página inicial.
-- **`icones/users.svg`** está no inventário, mas não há referência a ele nas páginas analisadas.
-- **`css/webfonts/`** contém arquivos de fontes com nomes Font Awesome, porém o projeto não inclui referência que permita determinar se são usados; nenhuma dependência externa ou CDN foi identificada.
-
-## Estilos e interface
-
-As variáveis em `:root` centralizam cores principais, de fundo, texto, destaque e fontes. `.dark` redefine essas variáveis; componentes que usam essas variáveis acompanham o tema sem folhas separadas por página. A navegação usa Flexbox; o destaque e os benefícios também usam Flexbox com quebra de linha. O conteúdo principal é centralizado e limitado em largura. Formulários usam grupos verticais de rótulo e campo, e cartões recebem fundo, borda arredondada e sombra.
-
-Os estados interativos explicitamente estilizados incluem `:hover` em links, botões e imagem de destaque, além de `:focus` no campo de pesquisa administrativa. Não foi identificada media query específica no CSS administrativo. A responsividade declarada em CSS concentra-se no breakpoint de 768 px do estilo global.
-
-## Fluxos de dados e persistência
-
-### Alternância do tema
+### Fluxo de uso identificado
 
 ```text
-Clique no botão #btn-tema
-        ↓ onclick="alternarTema()"
-js/tema.js alterna body.dark
-        ↓
-localStorage: chave "tema" ("dark" ou "light")
-        ↓ ao carregar outra página
-DOMContentLoaded reaplica "dark" quando salvo
+Usuário
+  ↓
+Página inicial (index.html)
+  ↓
+Navegação para Cadastro / Login / Admin
+  ↓
+Formulários HTML preenchidos pelo usuário
+  ↓
+Interação com JavaScript (tema e gerenciamento de usuários)
+  ↓
+Persistência em localStorage do navegador
+  ↓
+Atualização da interface e da lista de usuários
 ```
 
-### Registros do painel
+### O que o usuário consegue fazer
 
-```text
-Campos nome e e-mail de html/admin.html
-        ↓ submit (sem recarregar a página)
-js/admin.js cria registro e data local
-        ↓
-Array usuarios → JSON em localStorage["usuarios_Course Tech"]
-        ↓
-renderizarLista() cria os itens na interface
+- Visualizar a página inicial com apresentação da plataforma e cursos.
+- Acessar páginas de cadastro e login.
+- Preencher formulário de cadastro com dados pessoais.
+- Fazer login com e-mail e senha em um formulário HTML.
+- Usar botão de alternância de tema (modo claro/escuro) entre páginas.
+- Em `admin.html`, cadastrar usuários manualmente, pesquisar registros, excluir um registro específico e excluir todos os registros.
+
+### O que é apresentado ao usuário
+
+- Mensagens e textos de marketing para cursos e benefícios.
+- Cards com cursos e valores.
+- Indicadores visuais (ícones, imagens, composição em layout).
+- Formulários com campos de entrada e botões de ação.
+- Lista de usuários em painel administrativo.
+
+### O que pode ser inserido
+
+- Nome completo, e-mail, telefone e senha no formulário de cadastro.
+- E-mail e senha no formulário de login.
+- Nome ou e-mail para pesquisa na tela administrativa.
+
+### Resultados produzidos pelo sistema
+
+- A página pode alternar entre tema claro e escuro, mantendo a escolha no navegador via `localStorage`.
+- Na página administrativa, novos usuários são adicionados ao array em memória e armazenados em `localStorage`.
+- A interface de administração atualiza a lista dinamicamente no DOM.
+- A filtragem por nome e e-mail é aplicada em tempo real.
+
+### Relação entre as partes do projeto
+
+- `index.html` é a entrada principal da plataforma.
+- `html/cadastro.html` e `html/login.html` complementam o fluxo de acesso do usuário.
+- `html/admin.html` carrega `js/admin.js` para gerenciamento de usuários.
+- `js/tema.js` é compartilhado em todas as páginas que possuírem o botão de tema.
+- `css/style.css` define a identidade visual da aplicação e o layout padrão.
+- `css/admin.css` acrescenta estilos específicos da área administrativa.
+
+## 4. Estrutura e responsabilidade dos arquivos
+
+### `index.html`
+
+- Arquivo principal da landing page.
+- Responsável pela apresentação da marca "Course Tech" e dos cursos.
+- Contém navegação do cabeçalho, destaque principal, seção de cursos, seção de benefícios e rodapé.
+- Inclui a referência ao script `js/tema.js` para o botão de tema.
+
+### `html/cadastro.html`
+
+- Página de criação de conta.
+- Possui formulário com campos de nome, e-mail, telefone, senha e confirmação de senha.
+- O formulário envia para `login.html` via atributo `action="login.html"`.
+- Usa o mesmo layout visual do restante do projeto e o script de tema.
+
+### `html/login.html`
+
+- Página de autenticação.
+- Possui formulário com e-mail e senha.
+- Não há lógica de validação ou autenticação real implementada no JavaScript, conforme verificado no código.
+- Usa o mesmo estilo visual do restante do projeto e o script de tema.
+
+### `html/admin.html`
+
+- Página administrativa.
+- Contém formulário de cadastro de usuários para administração.
+- Inclui área de pesquisa, lista de usuários e botão para exclusão em massa.
+- Carrega os arquivos `css/admin.css`, `js/admin.js` e `js/tema.js`.
+
+### `css/style.css`
+
+- Arquivo de estilo principal.
+- Responsável pela definição de paleta de cores, tipografia, layout geral, formulários, botões, ícones e responsividade.
+- Importa fontes locais com `@font-face` e define variáveis CSS para temas claro e escuro.
+- Estrutura o layout de cabeçalho, main, rodapé, hero section e seção de benefícios.
+
+### `css/admin.css`
+
+- Estilos específicos do painel administrativo.
+- Define aparência da lista de usuários, itens, pesquisa e botões de ação.
+
+### `js/tema.js`
+
+- Função `alternarTema()` alterna a classe `dark` no elemento `body`.
+- Salva a escolha do usuário em `localStorage` com a chave `tema`.
+- Na carga inicial da página, verifica se há tema salvo e reaplica o modo escuro.
+- Relaciona-se diretamente com todas as páginas que possuem botão de tema.
+
+### `js/admin.js`
+
+- Script principal do painel administrativo.
+- Escuta o evento `DOMContentLoaded`.
+- Lê usuários do `localStorage` usando a chave `usuarios_Course Tech`.
+- Renderiza a lista de usuários na página de forma dinâmica.
+- Filtra usuários por nome ou e-mail em tempo real.
+- Permite adicionar usuários a partir do formulário.
+- Permite excluir um usuário individualmente via botão e excluir todos os registros com confirmação.
+- Usa `confirm()` para a confirmação de exclusão.
+
+### Diretórios de conteúdo visual
+
+#### `imagens/`
+
+- Armazena imagens de destaque e cursos utilizados na landing page.
+- Arquivos identificados: `estudante.jpg`, `web.jpg`, `uiux.jpg`, `marketing.jpg`.
+
+#### `icones/`
+
+- Armazena ícones SVG usados em benefícios, logo e redes sociais.
+- Exemplos: `check-circle.svg`, `clock.svg`, `graduation-cap.svg`, `facebook.svg`, `instagram.svg`, `linkedin.svg`.
+
+#### `fontes/`
+
+- Contém as fontes locais usadas no layout, especialmente `Montserrat` e `Roboto`.
+- O CSS referencia esses arquivos com `@font-face`.
+
+#### `css/webfonts/`
+
+- Contém arquivos webfont kit da biblioteca Font Awesome, presumivelmente usados por algum uso visual ou complemento de ícones, embora no código observado não seja possível afirmar qual conteúdo específico é exibido em tempo de execução.
+
+## 5. HTML: estrutura das páginas
+
+### `index.html`
+
+Estrutura principal:
+
+- `<header>` com logotipo e navegação.
+- `<nav>` com links para Início, Cadastro, Login e Admin.
+- `<main>` contendo:
+  - seção de destaque (`.destaque`);
+  - seção de cursos (`#cursos`);
+  - seção de benefícios (`.beneficios`).
+- `<footer>` com informações de direitos autorais e ícones de redes sociais.
+
+Elementos relevantes:
+
+- Botão de alternância de tema (`#btn-tema`).
+- Botões de ação para "Começar Agora" e "Ver Cursos".
+- Imagem principal de destaque e cards de cursos com preços.
+
+### `html/cadastro.html`
+
+- Cabeçalho com logo e navegação.
+- `<main>` com `div.container-form`.
+- Formulário `#formCadastro` com inputs:
+  - `nome`
+  - `email`
+  - `telefone`
+  - `senha`
+  - `confirmarSenha`
+- Botão de envio para cadastrar.
+- Link para a página de login.
+
+### `html/login.html`
+
+- Cabeçalho com logo e navegação.
+- `<main>` com `div.container-form`.
+- Formulário `#formLogin` com inputs:
+  - `emailLogin`
+  - `senhaLogin`
+- Botão de envio para entrar.
+- Link para a página de cadastro.
+
+### `html/admin.html`
+
+- Cabeçalho com logo e navegação.
+- `<main>` com `div.admin-container`.
+- Formulário `#formAdmin` com:
+  - `nomeAdmin`
+  - `emailAdmin`
+  - `btnCadastrar`
+  - `btnLimparCampos`
+- Área de lista com:
+  - campo de pesquisa `#inputPesquisa`
+  - `<ul id="listaUsuarios">` para renderização dinâmica
+  - botão `#btnExcluirTudo`
+
+## 6. CSS: identidade visual e comportamento
+
+O CSS é a base do visual do projeto e define a identidade da plataforma.
+
+### `css/style.css`
+
+- Define paleta de cores para tema claro e tema escuro.
+- Cria variáveis CSS para: cores, fontes e elementos repetidos.
+- Usa `@font-face` para carregar fontes locais (`Montserrat` e `Roboto`).
+- Implementa layout responsivo com `@media (max-width: 768px)`.
+- Estiliza cabeçalho, navegação, botões, formulários, cards de curso e benefícios.
+- Aplica classes como `.btn-primario`, `.btn-secundario`, `.btn-limpar`, `.btn-excluir` e `.container-form`.
+
+### `css/admin.css`
+
+- Complementa o `style.css` com estilos específicos do painel administrativo.
+- Define a área principal do administrador, lista de usuários, itens da lista, pesquisa e ações de exclusão.
+- Considera tema escuro por meio da classe `.dark` aplicada no `body`.
+
+## 7. JavaScript: interações detectadas
+
+### `js/tema.js`
+
+- `alternarTema()` alterna a classe `dark` na tag `body`.
+- Armazena a escolha em `localStorage.setItem("tema", "dark")` ou `localStorage.setItem("tema", "light")`.
+- Ao carregar a página, verifica `localStorage.getItem("tema")` para manter a preferência.
+
+### `js/admin.js`
+
+- A página administrativa inicializa os dados com:
+
+```javascript
+let usuarios = JSON.parse(localStorage.getItem('usuarios_Course Tech')) || [];
 ```
 
-A pesquisa filtra o array apenas para exibição; não altera os registros salvos. Exclusões modificam o array e atualizam o armazenamento. A exclusão em massa exige confirmação nativa do navegador. O painel e o tema dependem do `localStorage` do navegador atual; não há sincronização entre dispositivos ou usuários identificada. O HTML de login/cadastro não grava dados; portanto, não há evidência de persistência de contas.
+- `salvarDados()` persiste a lista em `localStorage`.
+- `renderizarLista(filtro = '')` limpa a lista do DOM e recria os elementos `<li>` dinamicamente.
+- Filtra por nome ou e-mail usando `.includes()` em minúsculas.
+- `formAdmin.addEventListener('submit', ...)` adiciona objeto com:
+  - `nome`
+  - `email`
+  - `dataEnvio`
+- `btnLimparCampos` reseta o formulário.
+- `btnExcluirTudo` remove todos os registros após confirmação.
+- `inputPesquisa` dispara atualização em tempo real.
+- `window.excluirItem(index)` remove um item específico da lista e persiste a alteração.
 
-## Funcionalidades e regras identificadas
+## 8. Dados e persistência
 
-| Funcionalidade | Implementação e dados envolvidos | Resultado |
-|---|---|---|
-| Navegação entre páginas e seções | Links em `index.html` e nas páginas de `html/`. | Abre páginas internas ou navega à seção de cursos. |
-| Alternar e restaurar tema | `js/tema.js`, classe `dark`, chave `tema` no `localStorage`. | Tema escuro/claro compartilhado entre páginas no mesmo armazenamento do navegador. |
-| Cadastrar registro administrativo | Formulário `#formAdmin` e evento submit em `js/admin.js`; campos nome/e-mail e data local. | Registro acrescentado à lista e persistido localmente. |
-| Pesquisar registros | Evento `input` em `#inputPesquisa`; compara nome e e-mail ignorando caixa. | Lista é filtrada enquanto se digita. |
-| Remover um ou todos os registros | `excluirItem(index)` ou botão `#btnExcluirTudo`; ambos usam `confirm()`. | Array e armazenamento local são atualizados após confirmação. |
-| Limpar formulário administrativo | Botão `#btnLimparCampos`. | Campos do formulário são resetados. |
-| Enviar formulários de cadastro/login | Formulários HTML com `required`; cadastro usa `action="login.html"`. | Só a validação nativa de preenchimento/formato está implementada. Não há criação de conta nem autenticação no código analisado. |
+Os dados observados são armazenados no navegador via Web Storage API:
 
-As regras de formulário identificadas são os atributos `required` e o tipo `email`. Não há regra implementada para formato de telefone, tamanho/força da senha, igualdade entre senha e confirmação, unicidade de e-mail ou autorização administrativa. O painel exige nome e e-mail por `required`; não há outras validações de negócio visíveis.
+- Tema visual: chave `tema`
+- Usuários administrativos: chave `usuarios_Course Tech`
 
-## Arquitetura e relações entre arquivos
+Não foi identificado no projeto um backend, API REST, banco de dados relacional ou serviço de autenticação real. A persistência é local no navegador, por meio do `localStorage`.
 
-A arquitetura identificada é um conjunto de páginas HTML estáticas, estilizadas por CSS local e complementadas por JavaScript executado no navegador. Não foram encontrados serviços, APIs, servidor ou banco de dados neste projeto.
+## 9. Informações que não puderam ser determinadas com segurança
 
-```text
-index.html ───────────────→ css/style.css
-    ├── imagens/* e icones/*
-    └── js/tema.js ───────→ localStorage (tema)
+As seguintes informações não podem ser afirmadas com base apenas nos arquivos analisados:
 
-html/login.html ──────────→ css/style.css
-    └── js/tema.js ───────→ localStorage (tema)
+- não foi possível confirmar a existência de uma API real ou de um servidor backend;
+- não foi possível confirmar como os dados de cadastro de usuários seriam validados em produção;
+- não foi possível confirmar se os formulários de cadastro e login fazem autenticação real ou apenas navegação entre páginas;
+- não foi possível confirmar se a área administrativa é uma demonstração visual ou um protótipo funcional integrado a um sistema externo;
+- não foi identificado qualquer mecanismo de segurança ou criptografia para senhas, pois o projeto não contém backend ou armazenamento seguro.
 
-html/cadastro.html ───────→ css/style.css
-    └── js/tema.js ───────→ localStorage (tema)
+## 10. Conclusão
 
-html/admin.html ──────────→ css/style.css + css/admin.css
-    ├── js/admin.js ──────→ DOM + localStorage (usuarios_Course Tech)
-    └── js/tema.js ───────→ localStorage (tema)
-```
+O projeto é uma página estática de apresentação e inscrição em cursos da marca Course Tech, com páginas de cadastro, login e painel administrativo. A interface visual é organizada em HTML/CSS e a parte dinâmica mais relevante é a alternância de tema e o gerenciamento local de usuários em `localStorage`. O projeto demonstra uma implementação front-end de nicho educacional, sem backend ou banco de dados real integrado ao código observado.
 
-## Pontos relevantes para manutenção
+## 11. Observações finais para manutenção
 
-- `index.html` é o ponto de entrada da apresentação. Seus cards e preços são conteúdo estático; não existe catálogo alimentado por dados.
-- `html/admin.html` e `js/admin.js` têm contrato direto por IDs de elementos. Alterar um ID usado pelo script exige atualizar o outro arquivo.
-- `js/admin.js` armazena registros no navegador sob a chave `usuarios_Course Tech`; alterações no formato dos objetos precisam considerar dados antigos que já possam estar armazenados.
-- `js/tema.js` é compartilhado por todas as páginas e depende da presença opcional de `#btn-tema`; verifica o botão antes de mudar seu texto.
-- Os caminhos de imagens, fontes, CSS, scripts e navegação são relativos à localização de cada HTML. Mover páginas ou recursos exige revisar esses caminhos.
-- Login e cadastro têm apenas estrutura visual e envio padrão de formulário; não devem ser tratados como autenticação ou cadastro persistente.
+Para quem for continuar ou manter esse projeto, o ponto principal a observar é que o comportamento mais relevante depende exclusivamente do navegador, do DOM e do `localStorage`, não de um servidor ou de regras de negócio em um backend. Qualquer evolução futura deverá levar em conta:
 
-## Limitações do que foi possível determinar
-
-- Não foi identificado backend, API, banco de dados, autenticação, autorização ou processamento de pagamentos.
-- Não foi possível determinar como os dados do painel seriam compartilhados ou administrados fora do navegador, pois eles são mantidos apenas no `localStorage` local.
-- Não há configuração de hospedagem, servidor, build ou instruções de execução no inventário analisado. Não é possível determinar o ambiente de publicação pretendido.
-- O destino pretendido para os links sociais `#` e a finalidade do SVG `users.svg` não puderam ser determinados.
-- Não foi possível comprovar que os cursos, benefícios ou preços exibidos correspondam a ofertas reais; eles são textos presentes na página.
-- O comportamento foi documentado a partir do código e não validado por execução em navegador.
-
-## Conclusão
-
-Course Tech é uma interface de demonstração de uma plataforma de cursos, organizada em uma página inicial e três páginas auxiliares de cadastro, login e administração. Usa HTML, CSS e JavaScript locais, com fontes, imagens e ícones incluídos no repositório. O tema é salvo no `localStorage`, assim como a lista de registros gerenciada pelo painel. O fluxo central do painel vai do formulário à atualização do array local e à renderização da lista. As páginas de login e cadastro não têm integração de autenticação ou persistência implementada nos arquivos analisados.
+- a ausência de autenticação real;
+- a persistência local e não compartilhada entre usuários;
+- a natureza estática do projeto;
+- o uso de arquivos locais para imagens, fontes e ícones.
